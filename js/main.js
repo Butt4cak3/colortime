@@ -6,9 +6,9 @@ window.addEventListener("load", function () {
 		var hours = d.getHours();
 		var mins = d.getMinutes();
 		var secs = d.getSeconds();
-		var red = ("0" + Math.round(256 / 24 * hours).toString(16)).slice(-2);
-		var green = ("0" + Math.round(256 / 60 * mins).toString(16)).slice(-2);
-		var blue = ("0" + Math.round(256 / 60 * secs).toString(16)).slice(-2);
+		var red = ("0" + Math.floor(256 / 24 * hours).toString(16)).slice(-2);
+		var green = ("0" + Math.floor(256 / 60 * mins).toString(16)).slice(-2);
+		var blue = ("0" + Math.floor(256 / 60 * secs).toString(16)).slice(-2);
 
 		hours = ("0" + hours).slice(-2);
 		mins = ("0" + mins).slice(-2);
