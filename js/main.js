@@ -2,8 +2,6 @@
 
 window.addEventListener("load", function () {
 	window.setInterval(function () {
-		document.body.style.transition = "all 0.8s";
-		document.body.style.webkitTransition = "all 0.8s";
 		var d = new Date();
 		var hours = d.getHours();
 		var mins = d.getMinutes();

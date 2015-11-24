@@ -7,6 +7,8 @@ html, body {
 
 body {
 	font-family: "open sans";
+	-webkit-transition: all 1s linear;
+	transition: all 1s linear;
 }
 
 h1 {
