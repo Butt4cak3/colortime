@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				b: Math.floor(256 / 60 * seconds)
 			},
 			hBackground = colorToHex(background),
-			hForeground = getLuminance(background) > 125 ? "#000000" : "#FFFFFF",
+			hForeground = getLuminance(background) > 200 ? "#000000" : "#FFFFFF",
 			nClock = document.getElementById("clock"),
 			nHex = document.getElementById("hex"),
 			nBody = document.body;
