@@ -2,23 +2,41 @@
 
 window.addEventListener("load", function () {
 	window.setInterval(function () {
-		var d = new Date();
-		var hours = d.getHours();
-		var mins = d.getMinutes();
-		var secs = d.getSeconds();
-		var red = ("0" + Math.floor(256 / 24 * hours).toString(16)).slice(-2);
-		var green = ("0" + Math.floor(256 / 60 * mins).toString(16)).slice(-2);
-		var blue = ("0" + Math.floor(256 / 60 * secs).toString(16)).slice(-2);
+		var now = new Date(),
+			hours = now.getHours(),
+			minutes = now.getMinutes(),
+			seconds = now.getSeconds(),
+			background = {
+				r: Math.floor(256 / 24 * hours),
+				g: Math.floor(256 / 60 * minutes),
+				b: Math.floor(256 / 60 * seconds)
+			},
+			hBackground = colorToHex(background),
+			hForeground = getLuminance(background) > 125 ? "#000000" : "#FFFFFF",
+			nClock = document.getElementById("clock"),
+			nHex = document.getElementById("hex"),
+			nBody = document.body;
 
-		hours = ("0" + hours).slice(-2);
-		mins = ("0" + mins).slice(-2);
-		secs = ("0" + secs).slice(-2);
-
-		var hex = "#" + red + green + blue;
-
-		document.getElementById("clock").innerHTML = hours + " : " + mins + " : " + secs;
-		document.getElementById("hex").innerHTML = hex;
-
-		document.body.style.background = hex;
+		nBody.style.background = hBackground;
+		nClock.innerHTML = numberFormat(hours) + " : " + numberFormat(minutes) + " : " + numberFormat(seconds);
+		nClock.style.color = hForeground;
+		nHex.innerHTML = hBackground;
+		nHex.style.color = hForeground;
 	}, 1000);
+
+	function colorToHex(color) {
+		return "#" + numToHex(color.r) + numToHex(color.g) + numToHex(color.b);
+	}
+
+	function numToHex(num) {
+		return ("0" + num.toString(16)).slice(-2);
+	}
+
+	function getLuminance(color) {
+		return 0.2126 * color.r + 0.7152 * color.g + 0.0722 * color.b;
+	}
+
+	function numberFormat(num) {
+		return ("0" + num).slice(-2);
+	}
 });
