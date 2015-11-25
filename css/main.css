@@ -23,3 +23,8 @@ h2 {
 	font-weight: 300;
 	text-align: center;
 }
+
+h1, h2 {
+	-webkit-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
