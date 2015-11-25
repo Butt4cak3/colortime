@@ -9,18 +9,17 @@ body {
 	font-family: "open sans";
 	-webkit-transition: all 1s linear;
 	transition: all 1s linear;
+	background-color: #000000;
 }
 
 h1 {
 	font-size: 120px;
 	font-weight: 300;
-	color: #FFFFFF;
 	text-align: center;
 }
 
 h2 {
 	font-size: 30px;
 	font-weight: 300;
-	color: #FFFFFF;
 	text-align: center;
 }

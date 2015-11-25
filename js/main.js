@@ -1,7 +1,10 @@
 /* jshint browser: true */
 
 document.addEventListener("DOMContentLoaded", function () {
-	window.setInterval(function () {
+	window.setInterval(tick, 1000);
+	window.setTimeout(tick, 0);
+
+	function tick() {
 		var now = new Date(),
 			hours = now.getHours(),
 			minutes = now.getMinutes(),
@@ -22,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		nClock.style.color = hForeground;
 		nHex.innerHTML = hBackground;
 		nHex.style.color = hForeground;
-	}, 1000);
+	}
 
 	function colorToHex(color) {
 		return "#" + numToHex(color.r) + numToHex(color.g) + numToHex(color.b);
