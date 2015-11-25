@@ -1,6 +1,6 @@
 /* jshint browser: true */
 
-window.addEventListener("load", function () {
+document.addEventListener("DOMContentLoaded", function () {
 	window.setInterval(function () {
 		var now = new Date(),
 			hours = now.getHours(),
