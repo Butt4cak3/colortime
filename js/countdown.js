@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
         target.setSeconds(0);
     }
 
+    if (now - target > 3600000) {
+        target.setDate(target.getDate() + 1);
+    }
+
 	window.setInterval(tick, 1000);
 	window.setTimeout(tick, 0);
 
