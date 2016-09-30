@@ -2,7 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 	var target = new Date(),
-        hash = window.location.hash.substr(1);
+        hash = window.location.hash.substr(1),
+        now = new Date();
 
     if (hash) {
         dateFromHash(target, hash);
@@ -34,6 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		nClock.style.color = hForeground;
 		nHex.innerHTML = hBackground;
 		nHex.style.color = hForeground;
+
+        if (now - target > 3600000) {
+            target.setDate(target.getDate() + 1);
+        }
 	}
 
 	function colorToHex(color) {
