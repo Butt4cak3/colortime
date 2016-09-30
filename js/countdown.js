@@ -1,11 +1,16 @@
 /* jshint browser: true */
 
 document.addEventListener("DOMContentLoaded", function () {
-	var target = new Date();
+	var target = new Date(),
+        hash = window.location.hash.substr(1);
 
-	target.setHours(17);
-	target.setMinutes(0);
-	target.setSeconds(0);
+    if (hash) {
+        dateFromHash(target, hash);
+    } else {
+        target.setHours(17);
+        target.setMinutes(0);
+        target.setSeconds(0);
+    }
 
 	window.setInterval(tick, 1000);
 	window.setTimeout(tick, 0);
@@ -66,4 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		return { hours: hours, minutes: minutes, seconds: seconds };
 	}
+
+    function dateFromHash(date, hash) {
+        var hours = hash.substr(0, hash.indexOf(":")),
+            minutes = hash.substr(hash.indexOf(":") + 1);
+
+        date.setHours(hours);
+        date.setMinutes(minutes);
+        date.setSeconds(0);
+    }
 });
