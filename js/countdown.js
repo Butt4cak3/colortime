@@ -6,9 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	target.setHours(17);
 	target.setMinutes(0);
 	target.setSeconds(0);
-	if (target < new Date()) {
-		target.setDate(target.getDate() + 1);
-	}
 
 	window.setInterval(tick, 1000);
 	window.setTimeout(tick, 0);
@@ -55,11 +52,17 @@ document.addEventListener("DOMContentLoaded", function () {
 			minutes,
 			hours;
 
-		hours = Math.floor(seconds / 3600);
-		seconds -= hours * 3600;
+		if (seconds <= 0) {
+			seconds = 0;
+			minutes = 0;
+			hours = 0;
+		} else {
+			hours = Math.floor(seconds / 3600);
+			seconds -= hours * 3600;
 
-		minutes = Math.floor(seconds / 60);
-		seconds -= minutes * 60;
+			minutes = Math.floor(seconds / 60);
+			seconds -= minutes * 60;
+		}
 
 		return { hours: hours, minutes: minutes, seconds: seconds };
 	}
