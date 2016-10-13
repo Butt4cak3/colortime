@@ -2,20 +2,20 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 	var target = new Date(),
-        hash = window.location.hash.substr(1),
-        now = new Date();
+		hash = window.location.hash.substr(1),
+		now = new Date();
 
-    if (hash) {
-        dateFromHash(target, hash);
-    } else {
-        target.setHours(17);
-        target.setMinutes(0);
-        target.setSeconds(0);
-    }
+	if (hash) {
+		dateFromHash(target, hash);
+	} else {
+		target.setHours(17);
+		target.setMinutes(0);
+		target.setSeconds(0);
+	}
 
-    if (now - target > 3600000) {
-        target.setDate(target.getDate() + 1);
-    }
+	if (now - target > 3600000) {
+		target.setDate(target.getDate() + 1);
+	}
 
 	window.setInterval(tick, 1000);
 	window.setTimeout(tick, 0);
@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		nHex.innerHTML = hBackground;
 		nHex.style.color = hForeground;
 
-        if (now - target > 3600000) {
-            target.setDate(target.getDate() + 1);
-        }
+		if (now - target > 3600000) {
+			target.setDate(target.getDate() + 1);
+		}
 	}
 
 	function colorToHex(color) {
@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		return { hours: hours, minutes: minutes, seconds: seconds };
 	}
 
-    function dateFromHash(date, hash) {
-        var hours = hash.substr(0, hash.indexOf(":")),
-            minutes = hash.substr(hash.indexOf(":") + 1);
+	function dateFromHash(date, hash) {
+		var hours = hash.substr(0, hash.indexOf(":")),
+			minutes = hash.substr(hash.indexOf(":") + 1);
 
-        date.setHours(hours);
-        date.setMinutes(minutes);
-        date.setSeconds(0);
-    }
+		date.setHours(hours);
+		date.setMinutes(minutes);
+		date.setSeconds(0);
+	}
 });
