@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	if (now - target > 3600000) {
 		target.setDate(target.getDate() + 1);
+	} else if (target - now > 82800000) {
+		target.setDate(target.getDate() - 1);
 	}
 
 	window.setInterval(tick, 1000);
