@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		var now = new Date(),
 			diff = timeDiff(now, target),
 			background = {
-				r: Math.floor(256 / 24 * diff.hours),
-				g: Math.floor(256 / 60 * diff.minutes),
-				b: Math.floor(256 / 60 * diff.seconds)
+				r: Math.floor(255 / 23 * diff.hours),
+				g: Math.floor(255 / 59 * diff.minutes),
+				b: Math.floor(255 / 59 * diff.seconds)
 			},
 			hBackground = colorToHex(background),
 			hForeground = getLuminance(background) > 200 ? "#000000" : "#FFFFFF",

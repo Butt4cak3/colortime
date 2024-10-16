@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
 			minutes = now.getMinutes(),
 			seconds = now.getSeconds(),
 			background = {
-				r: Math.floor(256 / 24 * hours),
-				g: Math.floor(256 / 60 * minutes),
-				b: Math.floor(256 / 60 * seconds)
+				r: Math.floor(255 / 23 * hours),
+				g: Math.floor(255 / 59 * minutes),
+				b: Math.floor(255 / 59 * seconds)
 			},
 			hBackground = colorToHex(background),
 			hForeground = getLuminance(background) > 200 ? "#000000" : "#FFFFFF",
